@@ -5,10 +5,11 @@ drums.innerHTML = ['year', 'month', 'day', 'hour', 'minute', 'second'].map(id =>
 ).join('');
 (function tick() {
     const d = new Date(), y = d.getFullYear(), pad = n => (n + '').padStart(2, 0);
+    const daysInMonth = new Date(y, d.getMonth() + 1, 0).getDate();
     [
         ['year', range(21, y-10), y + ''],
         ['month', months, months[d.getMonth()]],
-        ['day', range(31, 1), pad(d.getDate())],
+        ['day', range(daysInMonth, 1), pad(d.getDate())],
         ['hour', range(24), pad(d.getHours())],
         ['minute', range(60), pad(d.getMinutes())],
         ['second', range(60), pad(d.getSeconds())]
